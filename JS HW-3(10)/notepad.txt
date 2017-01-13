@@ -1,0 +1,150 @@
+1.)logical and, logical or?
+Ans: In order to discuss about logical operators first we need to know about what are truthy and falsy values
+Truthy values: true
+               'str'
+               all numbers expect 0
+               {}
+               all objects are truthy
+               []
+Falsy values: false
+              ''
+              0
+              undefined
+              null
+logical AND(&&): exp1 is returned if exp1 is a falsy value,else exp2 is returned.
+logical OR(||):  exp1 is returned if exp1 is a truthy value,else exp2 is returned.
+
+2.) String Methods( concat,split..)?
+Ans:  There are many string methods some are as follows                           
+String Methods:
+================
+
+charAt(index)  method returns the character at the given index
+
+
+    var str="javascript";  
+    document.write(str.charAt(2));
+
+concat(str) method() (or) + Symbol ->  concatenates or joins two strings.
+
+    var s1="javascript ";
+    var s2="UI";
+    document.write("Result->"+ s1.concat(s2)+"<br/>");
+    document.write("Result->"+ s1+" "+s2);
+
+indexOf(str)  method returns the index position of the given string
+
+
+    var s1="javascript as a part of UI";
+    var n=s1.indexOf("part");
+    document.write(n);
+
+lastIndexOf(str) method returns the last index position of the given string.
+
+
+    var s1="javascript from UIjava";
+    var n=s1.lastIndexOf("java");
+    document.write(n);
+
+toLowerCase()/toUpperCase() toLowerCase() method returns the given string in lowercase/uppercase letters.
+
+
+    var s1="JavaScript Info";
+    var s2=s1.toLowerCase();  //var s2 = s1.toUpperCase();
+    document.write(s2);
+
+trim() method removes leading and trailing whitespaces from the string
+
+
+    var s1="  UI technology  ";
+    var s2=s1.trim();
+    document.write(s2);	
+	
+references:
+http://www.w3schools.com/jsref/jsref_obj_string.asp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+
+3.) Array Methods?
+Ans: The strength of JavaScript arrays lies in the array methods.
+
+Some Array Methods:
+===================
+
+pop() method removes the last element from an array:
+
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.pop();  // Removes the last element ("Mango") from fruits
+	
+
+push() method adds a new element to an array (at the end):
+
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push('graphes');  // Add the graphes element after mango
+	
+	
+unshift() Method is used to add new items to the beginning of an array.	
+	
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.unshift("Lemon","Pineapple"); // Lemon,Pineapple,Banana,Orange,Apple,Mango
+	
+	
+shift() Method is used to Remove the first item of an array
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.shift(); // Orange,Apple,Mango
+	
+	
+delete fruits[0] is also used for delete the particular Index element.
+
+
+
+
+splice() method can be used to add /remove items to/from an array:
+
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 0, "Lemon", "Kiwi");  // 2 indicates index and 0 indicates how many elements u have to remove
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(0, 1);        // Removes the first element of fruits
+	
+	
+
+sort() method sorts an array alphabetically:
+
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();            // Sorts the elements of fruits
+	
+	
+
+reverse() method reverses the elements in an array.
+
+
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();            // Sorts the elements of fruits
+    fruits.reverse();         // Reverses the order of the elements
+
+concat() method creates a new array by concatenating two arrays:
+
+
+    var arr1 = ["Cecilie", "Lone"];
+    var arr2 = ["Emil", "Tobias","Linus"];
+    var arr3 = ["Robin", "Morgan"];
+    var myChildren = arr1.concat(arr2, arr3);     // Concatenates arr1 with arr2 and arr3
+	
+	
+
+slice() method slices out a piece of an array into a new array:
+
+
+    var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango", "graphes"];
+    var citrus = fruits.slice(1, 4);	// from 1st index to 3rd index but in slice() last index is excluding
+
+    Refrences:
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype
+    http://www.w3schools.com/jsref/jsref_obj_array.asp
+
