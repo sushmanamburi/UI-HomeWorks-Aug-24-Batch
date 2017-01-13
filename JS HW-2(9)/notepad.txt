@@ -1,0 +1,25 @@
+1.) Operational precedence
+Ans: Operator precedence determines the order in which operators are evaluated. Operators with higher precedence are evaluated first.
+Reference:
+http://www.scriptingmaster.com/javascript/operator-precedence.asp
+
+2.) i.)Difference between == & ===?
+Ans: == only compares values
+    === compares value and type
+
+    Eg: 6=='6' (True)
+        6==='6' (false)
+    ii.)Difference between != & !==?
+    !=  opposite to ==
+    !== opposite to ===
+
+
+3.) Difference between null and undefined?  
+Ans:'undefined' means a variable has been declared but has not yet been assigned a value. On the other hand, 'null' is an assignment value. It can be assigned to a variable as a representation of no value.
+Example:
+    var person; 		                            // undefined
+    var person = null;  		                    // null
+
+4.)Loop(for,while,do while) & Conditions(ifelse,switch)?
+Ans: Already done as a part of Homework 1.    
+
