@@ -1,0 +1,35 @@
+1.) selector.addEventListener(eventType,handlerFunction,captureFlag)
+Ans:The document.addEventListener() method attaches an event handler to the document.
+syntax:
+element.addEventListener(event, function, useCapture);
+The first parameter is the type of the event (like "click" or "mousedown").
+The second parameter is the function we want to call when the event occurs.
+The third parameter is a boolean value specifying whether to use event bubbling or event capturing. This parameter is optional.
+
+Reference: http://www.w3schools.com/js/js_htmldom_eventlistener.asp
+           https://developer.mozilla.org/en-US/docs/Web/API/EventListener  
+           https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener 
+
+2.)What is Event Propogation?
+Ans:Suppose if we have a parent & child element. If you are trying to listen same eventTypeon both elements. If you clicked(event performed) then event propogation will happen.
+
+3.)What is event bubling & capturing?
+Ans: Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in an element
+ inside another element, and both elements have registered a handle for that event. The event propagation mode determines 
+in which order the elements receive the event.
+With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+With capturing, the event is first captured by the outermost element and propagated to the inner elements.
+Capturing is also called "trickling".
+Reference: https://javascript.info/tutorial/bubbling-and-capturing
+
+
+4.)event.stopPropogation?
+Ans:Prevents further propagation of the current event in the capturing and bubbling phases.Incase of bubling, child event handler is only invoked whereas in capturing, parent event handler is only invoked.
+Syntax: event.stopPropagation();
+Reference: http://www.w3schools.com/jquery/event_stoppropagation.asp
+
+5.)event.stopImmediatePropogation?
+Ans:The event.stopImmediatePropagation() method stops the rest of the event handlers from being executed.
+Syntax: event.stopImmediatePropagation()
+Reference: https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation
+           http://www.w3schools.com/jquery/event_stopimmediatepropagation.asp
