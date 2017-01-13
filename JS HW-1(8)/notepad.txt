@@ -1,0 +1,199 @@
+1.) Why we use Java Script?
+Ans: JavaScript: It is a client side scripting language. When applied to an HTML document, it can provide dynamic interactivity on websites. It was developed by Brendan Eich.
+
+Some of the advantages are:
+> Client side validations
+> No server burden
+> Develop desktop Widgets
+> Display Popup and Dialog boxes
+
+2.) What is DOM Manipulation?
+Ans: When a web page is loaded, the browser creates a Document Object Model(DOM) of the page. It is a programming interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document. There are so many things involved in DOM manipulation like DOM element creation, insertion, removal, modification, styling, accessing, and relations.
+
+http://callmenick.com/post/basics-javascript-dom-manipulation
+
+
+3.)What are the events in a webpage? How can you recognize them?
+Ans: Event can be something the browser does, or something a user does. There are a lot of events such as mouse events like onclick, onmouseover,oncontextmenu,..., keyboard events like onkeydown, onkeypress, onkeyup, Frame events, Form events, drag events etc.. Each event has got it's own usage.
+We can recognize the event when the 
+>Things that should be done every time when a page loads
+>Things that should be done when the page is closed
+>Action that should be performed when a user clicks a button
+>Content that should be verified when a user inputs data
+etc..
+
+4.) Java Script data Types?
+Ans: There are two types of data types in JavaScript.
+> Primitive : String, Number, Boolean, Undefined, Null
+> Non-Prmitive / reference : Object, Array
+
+JavaScript is a loosely typed or a dynamic type language. That means you don't need to specify type of the variable because type will get determined automatically while the program is being processed.
+
+Example:
+    var length = 13;                                // Number
+    var lastName = "varma";                         // String
+    var person; 		                            // undefined
+    var person = null;  		                    // null
+    var y = true;                                   // Boolean
+
+    var course = ["java", ".net", "UI"];            // Array
+    var x = {firstName:"Sushma", lastName:"varma"}; // Object
+
+5.) Conditions & Loops
+Ans:JavaScript Conditional Statements:
+    ===================================
+  Conditional statements are used to perform different actions based on different conditions.
+  >if statement: to specify a block of JavaScript code to be executed if a condition is true.
+  >else if statement: to specify a new condition if the first condition is false.
+  >else statement: to specify a block of code to be executed if the condition is false.
+  >switch statement: to select one of many blocks of code to be executed.
+
+if..else if..else Syntax:
+-------------------------
+
+    if (expression 1){
+       Statement(s) to be executed if expression 1 is true
+    }
+    else if (expression 2){
+       Statement(s) to be executed if expression 2 is true
+    }
+    else{
+       Statement(s) to be executed if no expression is true
+    }
+
+if..else if..else Example:
+--------------------------
+ <html>
+ <body>
+ <script> 
+    var class1 = "java";
+    if(class1 == "java" ) {
+    document.write("<b>Java classes</b>");
+    }
+    else if(class1 == "UI" ) {
+    document.write("<b>UI classes</b>");
+    }
+    else {
+    document.write("<b>.NET classes</b>");
+    }
+ </script>
+ </body>
+ </html>
+
+
+Switch Syntax:
+--------------
+
+ switch (expression)
+ {
+   case condition 1: statement(s)
+   break;
+   case condition 2: statement(s)
+   break;
+   ...
+   case condition n: statement(s)
+   break;
+   default: statement(s)
+ }
+
+Switch Example:
+---------------
+ <html>
+   <body>
+      <script>
+            var grade='A';
+            document.write("Entering switch block<br>");
+            switch (grade)
+            {
+               case 'A': document.write("Distinction");
+               break;
+               case 'B': document.write("First Class");
+               break;
+               case 'C': document.write("Passed");
+               break;
+               default:  document.write("You r not eligible")
+            }
+            document.write("Exiting switch block");
+      </script>
+   </body>
+ </html>	
+ 
+JavaScript Loops
+=================
+ Loops can execute a block of code a number of times.
+
+for loop: loops through a block of code a number of times
+while loop: It verifies the condition before entering into the loop to see whether the next loop iteration should occur or not
+do..while loop: It executes the first iteration without checking the condition, it verifies the condition after finishing each iteration.
+for..in loop: It is enhanced for loop
+
+for loop Syntax:
+----------------
+
+ for (initialization; test condition; iteration statement){
+   Statement(s) to be executed if test condition is true
+ }
+
+for loop Example:
+-----------------
+
+ <html>
+   <body>
+      <script>
+            var count;
+            for(count = 0; count < 10; count++){
+               document.write("Current Count : " + count );
+               document.write("<br>");
+            }
+      </script>
+   </body>
+ </html>
+
+
+while loop Syntax:
+------------------
+ while (expression){
+   Statement(s) to be executed if expression is true
+ }
+
+While Loop Example:
+-------------------
+ <html>
+   <body>
+      <script>
+            var count = 0;
+            while (count < 10)
+            {
+               document.write("Current Count : " + count + "<br>");
+               count++;
+            }
+      </script>
+   </body>
+ </html>
+
+
+do..while loop Syntax:
+----------------------
+
+ do{
+    Statement(s) to be executed;
+ }  while (expression);
+
+do..while loop Example:
+-----------------------
+
+  <html>
+   <body>
+      <script>
+            var count = 0;
+            do {
+               document.write("Current Count : " + count + "<br>");
+               count++;
+            }
+            while (count < 5);
+      </script>
+      <p>Set the variable to different value and then try...</p>
+   </body>
+  </html> 
+   
+	
