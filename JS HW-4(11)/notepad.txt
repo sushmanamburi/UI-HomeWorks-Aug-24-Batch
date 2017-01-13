@@ -1,0 +1,98 @@
+1.)Explain arr.forEach and arr.map and compare difference?
+Ans:arr.forEach- Calls a function for each element in the array.
+syntax: arr.forEach(function(item,index,arr){
+	
+          })
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+    arr.map-It is similar to arr.forEach also additionally creates a new array with the results of calling a provided function on every element in this array.  
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map    
+
+    Differences:
+    https://ryanpcmcquen.org/javascript/2015/10/25/map-vs-foreach-vs-for.html
+
+2.) Object and objectmethods(.hasOwnProperty(item))
+Ans: Object: JavaScript objects are combination of properties (key & value) and methods. The value can be a primitive type, 
+an object or a function. Properties can be added, updated, removed at any time and some are read only.
+Example:
+--------
+   var car = {name:"Fiat", model:500, weight: 850kg, color:"white"};
+   Object methods: We can create a object methods using the following syntax
+                   methodName : function() { code lines }
+                   we can access an object method with the following syntax:
+                   objectName.methodName()
+    There are several object methods like object.hasOwnProperty('propertyKey')--> In this if the proprtyKey exists it returns true else,false.
+    Reference:
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+3.)Different ways of creating an object?
+Ans: There are 3 ways to create objects.
+
+1. By object literal
+2. By creating instance of Object directly (using new keyword)
+3. By using an object constructor (using new keyword)
+
+By using object literal:
+-------------------------
+    <script>
+    emp={id:102,name:"Sushma varma",salary:40000}
+    document.write(emp.id+" "+emp.name+" "+emp.salary);
+    </script>
+
+By creating instance of Object:
+--------------------------------
+    <script>
+    var emp=new Object();
+    emp.id=101;
+    emp.name="Sushma";
+    emp.salary=50000;
+    document.write(emp.id+" "+emp.name+" "+emp.salary);
+    </script>
+
+By using an Object constructor:
+-------------------------------
+
+    <script>
+    function emp(id,name,salary){
+    this.id=id;
+    this.name=name;
+    this.salary=salary;
+    }  
+    var emp1=new emp(101,"Sruthi",30000);
+    var emp2=new emp(102,"Bobby",50000);
+    document.write(emp1.id+" "+emp1.name+" "+emp1.salary);
+    document.write(emp2.id+" "+emp2.name+" "+emp2.salary);
+    </script>
+
+ 4.)Understand about properties in object. Look into about adding property,delete a property,edit property value, check if a property exists?
+ Ans: Properties are the most important part of any JavaScript object. Properties can usually be changed, added, and deleted, but some are read only.
+ Adding property:We can add new properties to an existing object by simply giving it a value. 
+ objName.newPropertyKey="value";
+ objName['newPropertyKey']="value";//array
+ Deleting property: It deletes the property from an object. It has no effect on variables or functions.
+ delete objName.existingPropertyKey
+ delete objName['existingPropertyKey']//array
+ Check property: It checks the property existence. If exists , it returns true. else,false.
+ objName['existingPropertyKey']//array
+ objName.existingPropertyKey
+
+ Reference:
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype#Properties
+ http://www.w3schools.com/js/js_properties.asp
+
+5.)What is a prototype in object?
+Ans:Every JavaScript object has a prototype. The prototype is also an object. Objects created using an object literal, or with new Object(), inherit from a prototype called Object.prototype.
+The JavaScript prototype property allows you to add new properties to an existing prototype:
+function Person(first, last, age, eyecolor) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eyecolor;
+}
+Person.prototype.nationality = "English";
+
+References:
+http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/
+http://www.w3schools.com/js/js_object_prototypes.asp
