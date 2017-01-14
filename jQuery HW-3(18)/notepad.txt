@@ -1,0 +1,14 @@
+1.)Downloaded ARC and practiced GET PUT POST of http methods.
+
+2.)What is Ajax?
+Ans:AJAX = Asynchronous JavaScript and XML.
+In Short, AJAX is the art of exchanging data with a server, and updating parts of a web page - without reloading the whole page.
+With the jQuery AJAX methods, you can request text, HTML, XML, or JSON from a remote server using both HTTP Get and HTTP Post - And we can load the external data directly into the selected HTML elements of your web page.
+
+3.)$.ajax? How to use?
+Ans:The jQuery $.ajax() function is used to perform an asynchronous HTTP request.
+Signature of the function:
+$.ajax(url[, options])
+$.ajax([options])
+The url parameter is a string containing the URL you want to reach with the Ajax call, while options is an object literal containing the configuration for the Ajax request.
+In its first form, this function performs an Ajax request using the url parameter and the options specified in options. In the second form, the URL is specified in the options parameter, or can be omitted in which case the request is made to the current page.
