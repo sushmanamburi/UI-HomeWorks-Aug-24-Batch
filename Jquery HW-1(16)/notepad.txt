@@ -1,0 +1,38 @@
+1.)More about Event Delegatiion?
+Ans: The event delegation helps to simplify event handling by smart use of bubbling.
+The algorithm:
+--------------
+>Bind a handler to the container.
+>In the handler: get event.target.
+>If necessary, climb up the target.parentNode chain, until either the first suitable target is found (and handle it), or the container (this) is reached.
+Use-cases:
+----------
+>Single handler for similar actions on many children
+>Simplifies architecture for different actions, if the action can be figured out from the target.
+
+References:
+----------- https://davidwalsh.name/event-delegate
+            https://www.sitepoint.com/javascript-event-delegation-is-easier-than-you-think/
+
+2.) What is jQuery?
+Ans: 1. It is a "Write less, do more" JavaScript library
+	 2. Used to simplify tasks of javascript by writing less code
+	 3. Used for event handling and animations
+
+	 $(document).ready(function() { logic } is the syntax of jQuery.
+
+3.)WHy do we use jQuery?
+Ans: FEATURES OF JQUERY:
+    -------------------
+	DOM manipulation 
+	AJAX Support	 
+	Lightweight 
+	Cross Browser Support  
+
+4.)$(document).ready vs window.onload?
+Ans: document.ready is a jQuery event, it runs when the DOM is ready, e.g. all elements are there to be found/used, but not necessarily all content.
+window.onload fires later (or at the same time in the worst/failing cases) when images and such are loaded, so if you're using image dimensions for example, you often want to use this instead.
+
+5.) What is $?
+Ans:$ sign is used to define/access jQuery.
+ 
