@@ -1,0 +1,10 @@
+1.)Selectors in jQuery?
+Ans: Basic Selectors
+	 Attribute selectors
+	 Basic filters
+	 Child filters
+	 Content filters
+	 Form filters
+	 Hierarchy filters
+
+	 Went through all of them under http://api.jquery.com/category/selectors/
