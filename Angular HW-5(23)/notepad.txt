@@ -1,0 +1,178 @@
+1.)What is factory? Write & Example?
+Ans: Factory: A factory is a simple function which allows you to add some logic before creating the object. It returns the created object.
+ 
+ Syntax:  
+ --------
+ app.factory('sumfactory',function(){ return factoryServiceObj;})
+  Custom Factory Example:
+ -----------------------
+ <DOCTYPE html>
+<html ng-app='myApp'>
+    <head>
+        <script src="https://code.angularjs.org/1.4.0-beta.6/angular.js"></script>    
+        <script>
+            var app = angular.module('myApp', []);
+
+            app.factory('myFactory', function () {
+                var factory = {};
+                factory.sayHello = function (msg) {
+                    return "Factory says \"Hello " + msg + "\"";
+                };
+                return factory;
+            });
+
+            // AngularJS Controller that uses the factory
+            app.controller('myController', function ($scope, myFactory)
+            {
+                $scope.result = myFactory.sayHello("Welcome");
+            });
+
+        </script>
+    </head>
+
+    <body ng-controller='myController'>
+        <h1>myFactory service's sayHello() function is calling from controller</h1><hr/>
+        {{result}}
+    </body>
+    
+</html>  
+
+2.)What is service? Write & Example?
+Ans: Services: A service is a constructor function which creates the object using new keyword. 
+ We can add properties and functions to a service object by using this keyword. And it doesn’t return anything.
+ Syntax: 
+---------- 
+ app.service('serviceName',function(){})
+ Custom Service Example:
+ -----------------------
+
+ <!DOCTYPE html>
+<html  ng-app="app">
+
+  <head>	
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="../js/script.js"></script>
+  </head>
+
+  <body>
+    <h1 style="color:orange">Math and Calculator Service ! </h1><br/>
+    
+    <div>
+      <div ng-controller="CalculatorController">
+        
+        Enter a number:
+        <input type="number" ng-model="number1">
+        <input type="number" ng-model="number2">
+        
+        <button ng-click="add()">Add</button>
+        <button ng-click="sub()">Sub</button>
+        <button ng-click="mult()">Mul</button>
+        <button ng-click="div()">Div</button>
+        
+        <div>Answer: {{answer1}}</div> 
+        
+        <br/>
+        
+        
+        Enter a number:
+        <input type="number" ng-model="number">
+        <button ng-click="doSquare()">X<sup>2</sup></button>
+        <button ng-click="doCube()">X<sup>3</sup></button>
+         
+        <div>Answer: {{answer}}</div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+
+script.js
+----------
+ 
+var app = angular.module('app', []);
+
+app.service('MathService', function() {
+
+    this.add = function(a, b) { return a + b };
+     
+    this.subtract = function(a, b) { return a - b };
+     
+    this.multiply = function(a, b) { return a * b };
+     
+    this.divide = function(a, b) { return a / b };
+    
+});
+ 
+app.service('CalculatorService', function(MathService){
+     
+    this.square = function(a) 
+    { 
+      return MathService.multiply(a,a); 
+      
+    };
+    
+    this.cube = function(a) { 
+      return MathService.multiply(a, MathService.multiply(a,a)); 
+      
+    };
+ 
+});
+ 
+app.controller('CalculatorController', function($scope, CalculatorService, MathService) {
+ 
+    $scope.add = function() {
+        $scope.answer1 = MathService.add($scope.number1, $scope.number2);
+    };
+    
+    $scope.sub = function() {
+        $scope.answer1 = MathService.subtract($scope.number1, $scope.number2);
+    };
+    
+    $scope.mult = function() {
+        $scope.answer1 = MathService.multiply($scope.number1, $scope.number2);
+    };
+    
+    $scope.div = function() {
+        $scope.answer1 = MathService.divide($scope.number1, $scope.number2);
+    };
+ 
+    $scope.doSquare = function() {
+        $scope.answer = CalculatorService.square($scope.number);
+    };
+ 
+    $scope.doCube = function() {
+        $scope.answer = CalculatorService.cube($scope.number);
+    };
+});
+ 
+3.) Difference between factory and service? Are both of them singleton? What is singleton?
+Ans:A service is a constructor function whereas a factory is not. Somewhere deep inside of this Angular world, there’s this code that calls Object.create() with the service constructor function, when it gets instantiated. However, a factory function is really just a function that gets called, which is why we have to return an object explicitly.
+
+ Factory and services are reusable singleton objects that are used to organize and share code across your app.
+ They can be injected into controllers, filters, directives. 
+
+ A service is registered using the service() function of angular.module() . The second argument to service() is a constructor function. When we ask for the service as a dependency, AngularJS creates an object from this constructor function and injects it. A service is a singleton.
+
+ 4.)How to make ajax calls using $http and all methods of http like (GET,POST,PUT & DELETE)?
+ Ans:The jQuery get() and post() methods are used to request data from the server with an HTTP GET or POST request.
+ Simple GET request example:
+ ----------------------------
+$http({
+  method: 'GET',
+  url: '/someUrl'
+}).then(function successCallback(response) {
+   }, function errorCallback(response) {
+  
+  });
+
+ 5.)What is $q?
+ Ans: Angular JS provides a service called $q which allows you to work with asynchronous functions and user their return values when the execution has been completed, and what its really cool about it is that it will let you write your custom promises as well (so you can resolve or reject a promise when appropriate).
+ Using Angular’s $q service to deal with promises
+ Example:
+ --------
+var deferred = $q.defer();
+deferred.resolve(data);
+deferred.reject(error);
