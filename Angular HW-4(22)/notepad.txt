@@ -1,0 +1,124 @@
+1.)Practice all filters& explain them by example?
+Ans:Filter: It formats the value of an expression for display to the user. They can be used in view templates, controllers or services 
+and it is easy to define your own/customized filter. Filters can be added to expressions and directives using a pipe character.
+
+Currency:	It is used to formate number as currency.
+Date:		It is used to set date format.
+Lowercase:	It is used convert any string to lower case.
+Uppercase:	It is used convert any string to upper case.
+Number:		It is used to format any number as string.
+OrderBy:	It is used to set array order ascending or descending.
+Filter:		It is used to filter or search an item from array.
+LimitTo:	It is used to extract subset of array with specified number of items.
+
+Currency Filter Example:
+=======================
+<!DOCTYPE html>
+<html ng-app='myApp'>
+
+  <head>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+  </head>
+
+  <body ng-controller='MainCtrl'>
+  <h1 style='color:orangered'>Filter Examples</h1><hr/><br/>
+    
+     Amount ($) : <span ng-bind='amount | currency'></span><br>
+     Amount (INR) : {{amount | currency:'&#8377;'}} <br>
+     Amount (Custom) : {{amount | currency:'Rs. '}} <br>
+     Amount (No Symbol) : {{amount | currency:''}} <br>
+     Amount (0 fractions) : {{amount | number:0}} <br>
+
+     
+	 <script>
+	 var app = angular.module('myApp', []);
+     app.controller('MainCtrl', function ($scope) {  
+     $scope.amount='15000'; 
+
+});
+	 </script>
+  </body>
+
+</html>
+
+
+lowercase, uppercase, Number and Date - Filters :
+=================================================
+    <!DOCTYPE html>
+    <html>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <body>
+    <h1 style='color:orangered'>Filter Examples</h1><hr/><br/>
+
+    <div ng-app="myApp" ng-controller="empController">
+
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    Salary: <input type="text" ng-model="salary"><br>
+    Date: <input type="date" ng-model="dateval"><br>
+    <br>
+    First Name: {{firstName | lowercase}}<br/>
+    Last Name: {{lastName | uppercase}}<br/>
+    Salary1: {{salary | number}}<br/>  <!-- max 3 fractions if we provide fractions otherwise it won't take -->
+    Salary2: {{salary | number:0}}<br/> <!-- removing fractions -->
+    Salary3: {{-salary | number:2}}<br/><!-- Negative with only 2 fractions allow -->
+    Date1: {{dateval | date:'short|medium|longDate'}} <br/>
+    Date2: {{dateval | date : 'dd/MM/yyyy hh:mm'}}
+    </div>
+ <script>  
+        angular.module('myApp', []).controller('empController', function($scope) {
+        $scope.firstName = "Sushma",
+        $scope.lastName = "Varma",
+        $scope.salary = "500.50",
+        $scope.dateval="08/06/1991 03:28"
+        });
+</script>
+
+    </body>
+    </html>
+      
+OrderBy,LimitTo and Filter - Filters
+====================================
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+  </head>
+
+  <body ng-controller='MainCtrl'>
+  <h1 style='color:orangered'>Filter Examples</h1><hr/><br/>
+  
+  Search By: <input type='text' ng-model='searchBy'/>
+    
+    <ul>
+      <li ng-repeat="emp in employees| orderBy: '-name'  | limitTo: 5 | filter: searchBy"> {{emp.name}} - {{emp.age}} - {{emp.gender}}</li>
+    </ul>
+     
+         
+     <script>
+         var app=angular.module('myApp',[]);
+		 app.controller('MainCtrl', function($scope){ 
+		 $scope.employees= [
+                     {name:'chiru', age:25, gender:'boy'},
+                     {name:'laxmi', age:30, gender:'girl'},
+                     {name:'saraswathi', age:28, gender:'girl'},
+                     {name:'seetha', age:15, gender:'girl'},
+                     {name:'geetha', age:28, gender:'girl'},
+                     {name:'Srikanth', age:95, gender:'boy'},
+                     {name:'avinash', age:50, gender:'boy'},
+                     {name:'raani', age:27, gender:'girl'},
+                     {name:'deexit', age:40, gender:'boy'},
+                     {name:'sonali', age:60, gender:'girl'}
+                 ];
+  
+		});
+      </script>
+      </body>
+	</html>
+
+
+2.) Create a custom filter for reversing a string?
+Ans: please go to reversecustomfilter.html
+
+3.)Explain with an example about ng-repeat & ng-options. Also look into difference between ng-repeat & ng-options.
+Ans: ngOptions provides an iterator facility for the element which should be used instead of ngRepeat when you want the select model to be bound to a non-string value. This is because an option element can only be bound to string values at present.
