@@ -1,0 +1,20 @@
+1.) Http Status codes in restful webservices?
+Ans: There are 1xx, 2xx, 3xx, 4xx, 5xx codes. 
+1xx is for Informational related codes
+2xx is for Success related codes
+3xx is for Redirection related codes
+4xx is for Client Error related codes
+5xx is for Server Error related codes
+
+Reference: http://www.restapitutorial.com/httpstatuscodes.html
+           https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+
+2.) Angular JS MVC and MVVM(Data binding)?
+Ans: Model View Controller or MVC as it is popularly called, is a software design pattern for developing web applications. A Model View Controller pattern is made up of the following three parts −
+Model − It is the lowest level of the pattern responsible for maintaining data.
+View − It is responsible for displaying all or a portion of the data to the user.
+Controller − It is a software Code that controls the interactions between the Model and View.
+
+MVVM pattern is relatively new, and it is evolving with applications for mobile devices, but has moved to SPA also.
+
+Data-binding in Angular apps is the automatic synchronization of data between the model and view components.
