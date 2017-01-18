@@ -1,0 +1,72 @@
+1.) One time data binding and two way data binding?
+Ans: One way data binding because the model values (here the variables represent the model) are automatically assigned to the HTML placeholder elements specified through the data binding notation, but the HTML elements don't change the values in the model (one way).
+Example: 
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="angular.js"></script>
+</head>
+<body ng-app ng-init="firstName = 'John'; lastName = 'Doe';">
+  <strong>First name:</strong> {{firstName}}<br />
+  <strong>Last name:</strong> <span ng-bind="lastName"></span>
+</body>
+</html>
+
+We have a two way data binding when a model variable is bound to a HTML element that can both change and display the value of the variable. In general, we could have more than one HTML element bound to the same variable.
+We use the ng-model directive to bind a model variable to the HTML element that can not only display its value, but also change it.
+Example:
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="angular.js"></script>
+</head>
+<body ng-app ng-init="firstName = 'John'; lastName = 'Doe';">
+  <strong>First name:</strong> {{firstName}}<br />
+  <strong>Last name:</strong> <span ng-bind="lastName"></span><br />
+  <br />
+  <label>Set the first name: <input type="text" ng-model="firstName"/></label><br />
+  <label>Set the last name: <input type="text" ng-model="lastName"/></label>
+</body>
+</html>
+
+
+2.) ng-init,ng-model,ng-app,ng-bind?
+Ans:Directives: AngularJS directives are extended HTML attributes with the prefix ng-
+
+AngularJS Main Directives:
+--------------------------
+ng-app: It initializes an AngularJS application.
+ng-init:  It initializes application data.
+ng-model: It binds the value of HTML controls(input, select, textarea)to application data.
+ng-bind: It binds the AngularJS Application data to HTML tags.
+
+3.){{}} Angular expressions?
+Ans:AngularJS expressions can be written inside double braces: {{ expression }}.
+AngularJS expressions can also be written inside a directive: ng-bind="expression".
+AngularJS will resolve the expression, and return the result exactly where the expression is written.
+AngularJS expressions are much like JavaScript expressions: They can contain literals, operators, and variables.
+Example {{ 5 + 5 }} or {{ firstName + " " + lastName }}
+
+4.)$scope in angularjs?
+Ans:Scope is an object that refers to the application model. It is an execution context for expressions. Scopes are arranged in hierarchical structure which mimic the DOM structure of the application. Scopes can watch expressions and propagate events.
+When you make a controller in AngularJS, you pass the $scope object as an argument.
+
+5.)Can we define multiple controllers within an application?
+Ans:Yes.
+var app = angular.module('app', []);
+app.controller('TextController', function ($scope) {
+    //Controller Code Here    
+});
+app.controller('ItemController', function ($scope) {
+    //Controller Code Here
+});
+
+6.)ng-click.. events in angularJS?
+Ans:The ngClick directive allows you to specify custom behavior when an element is clicked.
+Usage as element:
+<ng-click
+  ng-click="expression">
+...
+</ng-click>
+
+Reference: http://www.w3schools.com/angular/angular_events.asp
