@@ -1,0 +1,64 @@
+1.) What is deffered object & Promise? Explain with an example and their differences?
+Ans:Deferred Object:
+Deferred is an object which expose the promise. It has  mainly three methods resolve(), reject(), and notify(). Deferred returns promise object. When Deferred completes, You call methods either resolve(), reject(), and notify() . It calls callback register to either resolve(), reject(), or notify() according to how it has completed.
+Example:
+--------
+function sayHelloAsync(name) {
+    return function () {
+        var defer = $q.defer()
+        setTimeout(function() {
+            //Greet when your name is 'deepak'
+            if (name == 'deepak') {
+                defer.resolve('Hello, ' + name + '!');
+            }
+            else {
+                defer.reject('Greeting ' + name + ' is not allowed.');
+            }
+        }, 1000);
+ 
+        return defer.promise
+    }
+}      
+   
+Promise Object:
+Promise is an object which is return by a Deferred object. You can register different callbacks for different events resolve(), reject(), or notify() and it will execute when async function has completed.
+Example:
+--------
+var helloPromise = sayHelloAsync('deepak');
+ helloPromise.then(function (data) {
+    console.log(data);
+}, function (error) {
+    console.error(data);
+})      
+   
+2.)Promise chaining.Explain it by an example?
+Ans: There are cases when there is the need to perform a set of asynchronous operations, one after another, to load or process something. In AngularJS, If the result of each operation is wrapped by a promise, taking advantage of promise chaining leads to code easier to be read and maintained.
+By AngularJS design, a promise callback can return another callback, so the load of resources could be done in adjacent blocks of code. That is the so called promise chaining.
+Example:
+--------
+function PromiseCtrl($scope, $q, $timeout) {
+    var getPromise = function(success) {
+        var deferred = $q.defer();
+        $timeout(function() {
+            ++$scope.promises;
+            if(success) {
+                deferred.resolve("Success");
+            } else {
+                deferred.reject("Fail");
+            }
+        }, 1000);
+    };   
+    $scope.result = "Waiting";
+    $scope.promises = 0;
+       $q.when(true).then(function(value) {
+        return getPromise(true); 
+    }).then(function(value) {        
+        return getPromise(false); 
+    }).then(function(value) {
+        return getPromise(true); 
+    }).then(function(value) {        
+        $scope.result = value; 
+    }, function(value) {        
+        $scope.result = value; 
+    });
+}
