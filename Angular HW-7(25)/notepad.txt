@@ -1,0 +1,61 @@
+1.)promise.all?
+Ans: Using $q.all() to Resolve multiple promises.
+The $q.all() method takes either an object or an array of promises and waits for all of them to resolve() or one of them to reject() and then executes the provided callback function. The values returned from the resolve function are provided depending on the way you give the promises to all().
+Example:
+--------
+let promises = [promiseAlpha(), promiseBeta(), promiseGamma()];
+$q.all(promises).then((values) => {
+    console.log(values[0]); 
+    console.log(values[1]); 
+    console.log(values[2]); 
+    complete();
+});
+
+2.)What is single page application? How to write a program using ngRoute to develop SPA?
+Ans:Single Page Application:
+    -------------------------
+Single page application (SPA) is a web application that fits on a single page. All your code (JS, HTML, CSS) is retrieved with a single page load. And navigation between pages performed without refreshing the whole page.
+Example:
+--------
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<body ng-app="myApp">
+<p><a href="#/">Main</a></p>
+<a href="#red">Red</a>
+<a href="#green">Green</a>
+<a href="#blue">Blue</a>
+<div ng-view></div>
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm"
+    })
+    .when("/red", {
+        templateUrl : "red.htm"
+    })
+    .when("/green", {
+        templateUrl : "green.htm"
+    })
+    .when("/blue", {
+        templateUrl : "blue.htm"
+    });
+});
+</script>
+<p>Click on the links to navigate to "red.htm", "green.htm", "blue.htm", or back to "main.htm"</p>
+</body>
+</html>
+
+3.)ui.router to implement routing?
+Ans:The UI-Router is a routing framework for AngularJS built by the AngularUI team. It provides a different approach than ngRoute in that it changes your application views based on state of the application and not just the route URL.
+   angular.module('app', ['ui.router'])
+
+4.)Difference between ui.router and ngRoute?
+Ans:STATES VS URL ROUTE:
+    -------------------
+With this approach, your views and routes aren’t tied down to the site URL. This way, you can change the parts of your site using your routing even if the URL does not change.
+When using ngRoute, you’d have to use ngInclude or other methods and this could get confusing. Now that all of your states, routing, and views are handled in your one .config(), this would help when using a top-down view of your application.
+   
