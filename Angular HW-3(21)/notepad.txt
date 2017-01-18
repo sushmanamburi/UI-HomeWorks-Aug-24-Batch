@@ -1,0 +1,20 @@
+1.) In a directive-scope-(shared,isolated,inherited)?
+Ans:scope=shared scope
+               -->all directives will share same model which is defined in a template.
+               -->this is default one.
+    scope=isolated scope
+    		   -->every directive instance model would be the independent.
+    	Syntax: scope:{}
+    scope=inherited scope
+                -->Inherited scope is much safer for your parent controller’s data than no scope
+                -->scope: true is useful in situations where the child directive serves the purpose of mutating data on the parent scope.
+                -->scope:false, using inherited scope, especially repeatedly, is an architectural smell.
+
+2.) Isolated scope?(@,=,&)
+Ans: We have a way to read the attribute values in isolate scope
+     scope:{
+     attr1:'@', //read a value
+     attr2:'=', //read value as model
+     attr3:'&', //read value as a function reference
+     }                
+    		   
